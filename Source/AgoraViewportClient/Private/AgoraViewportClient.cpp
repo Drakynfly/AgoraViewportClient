@@ -22,5 +22,5 @@ void FAgoraViewportClient::ShutdownModule()
 }
 
 #undef LOCTEXT_NAMESPACE
-	
+
 IMPLEMENT_MODULE(FAgoraViewportClient, AgoraViewportClient)

@@ -18,11 +18,6 @@ public:
 	void Construct(const FArguments& InArgs);
 
 private:
-	EVisibility GetLoadIndicatorVisibility() const
-	{
-		return EVisibility::Visible;
-	}
-
 	TSharedPtr<SOverlay> WatermarkOverlay;
 };
 
@@ -30,12 +25,10 @@ UCLASS()
 class AGORAVIEWPORTCLIENT_API UAgoraGameViewportClient : public UGameViewportClient
 {
 	GENERATED_BODY()
-	
-public:
 
+public:
 	virtual void Activated(FViewport* InViewport, const FWindowActivateEvent& InActivateEvent) override;
-	
+
 	TSharedPtr<SAgoraWatermarkCompoundWidget> AgoraWatermark;
 	void ShowWatermarkOnScreen();
-	
 };

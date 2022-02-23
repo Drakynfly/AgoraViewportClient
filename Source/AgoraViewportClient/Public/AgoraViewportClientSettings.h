@@ -5,7 +5,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-
 #include "Engine/DeveloperSettings.h"
 #include "HardwareInfo.h"
 #include "GenericPlatform/GenericPlatformDriver.h"
@@ -16,7 +15,7 @@
 USTRUCT(BlueprintType)
 struct FAgoraViewportText
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, Category="Agora Viewport Text")
 	bool bEnabled;
@@ -60,13 +59,13 @@ UCLASS(config = AgoraViewportClient, defaultconfig)
 class AGORAVIEWPORTCLIENT_API UAgoraViewportClientSettings : public UDeveloperSettings
 {
 	GENERATED_BODY()
-	
+
 private:
 
 	/** Enable or disable features.*/
 	UPROPERTY(Config, EditAnywhere, Category = "Agora Viewport Client")
 	uint8 bEnable : 1;
-	
+
 	UPROPERTY(Config, EditAnywhere, Category = "Agora Viewport Client", meta = (EditCondition = "bEnable"))
 	uint8 bAddBuiltWithEngineVersionToCreatedBy : 1;
 
@@ -109,13 +108,13 @@ public:
 	{
 		bEnable = true;
 		bAddBuiltWithEngineVersionToCreatedBy = true;
-		
+
 		TitleText.Text = NSLOCTEXT("Agora", "AgoraViewportClientTitle", "WORK IN PROGRESS - DOES NOT REPRESENT FINAL LOOK OF THE GAME");
 		TitleText.HorizontalAlignment = HAlign_Center;
 		TitleText.VerticalAlignment = VAlign_Top;
 		TitleText.Padding = FIntPoint(10, 100);
 		TitleText.FontSize = 24;
-		
+
 		CreatedBy.Text = NSLOCTEXT("Agora", "AgoraViewportClientCreatedBy", "Created by <YOUR_NAME_HERE>");
 		CreatedBy.VerticalAlignment = VAlign_Bottom;
 		CreatedBy.HorizontalAlignment = HAlign_Left;
@@ -141,7 +140,7 @@ public:
 		Args.Add(TEXT("CpuCores"), FText::AsNumber(FPlatformMisc::NumberOfCores()));
 		Args.Add(TEXT("GpuBrand"), FText::FromString(FPlatformMisc::GetPrimaryGPUBrand()));
 #endif
-		
+
 		Args.Add(TEXT("GpuDriver"), FText::FromString(GPUDriverInfo.UserDriverVersion));
 		Args.Add(TEXT("RHI"), FText::FromString(FHardwareInfo::GetHardwareInfo(NAME_RHI)));
 
@@ -176,7 +175,7 @@ public:
 		static const FText BuiltText = FText::Format(NSLOCTEXT("Agora", "AgoraViewportClientEngineVersion", "Built using Unreal Engine {UnrealEngineVersion}"), Args);
 		return BuiltText;
 	}
-	
+
 	FORCEINLINE FAgoraViewportText GetSystemDetails() const
 	{
 		FAgoraViewportText SystemDetails;

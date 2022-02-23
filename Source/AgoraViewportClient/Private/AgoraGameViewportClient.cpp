@@ -38,7 +38,7 @@ void SAgoraWatermarkCompoundWidget::Construct(const FArguments& InArgs)
 			.ShadowOffset(TitleText.ShadowOffset)
 			.Text(TAttribute<FText>(TitleText.Text))
 		]
-		
+
 		+ SOverlay::Slot()
 		.Padding(CreatedBy.Padding.X, CreatedBy.Padding.Y)
 		.VAlign(CreatedBy.VerticalAlignment)

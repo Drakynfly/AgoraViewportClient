@@ -8,14 +8,30 @@ public class AgoraViewportClient : ModuleRules
 {
 	public AgoraViewportClient(ReadOnlyTargetRules Target) : base(Target)
 	{
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+		bUseUnity = false;
 
 #if UE_4_26_OR_LATER
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "DeveloperSettings" });
+		PublicDependencyModuleNames.AddRange(new []
+		{
+			"Core",
+			"DeveloperSettings"
+ });
 #else
-		PublicDependencyModuleNames.AddRange(new string[] { "Core" });
+		PublicDependencyModuleNames.AddRange(new []
+		{
+			"Core"
+		});
 #endif
-		
-		PrivateDependencyModuleNames.AddRange(new string[] { "CoreUObject", "Engine", "Slate", "SlateCore", "RHI" } );
+
+		PrivateDependencyModuleNames.AddRange(new []
+		{
+			"CoreUObject",
+			"Engine",
+			"Slate",
+			"SlateCore",
+			"RHI",
+			"InputCore"
+		});
 	}
 }
