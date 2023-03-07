@@ -9,7 +9,6 @@ public class AgoraViewportClient : ModuleRules
 	public AgoraViewportClient(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-		bUseUnity = false;
 
 #if UE_4_26_OR_LATER
 		PublicDependencyModuleNames.AddRange(new []
